@@ -1,0 +1,9 @@
+praw
+tweepy
+yfinance
+pandas
+numpy
+vaderSentiment
+matplotlib
+seaborn
+pyyaml

@@ -1,0 +1,88 @@
+
+# Sentiment Stock Predictor
+
+## Overview
+The Sentiment Stock Predictor project leverages sentiment analysis from social media platforms like Reddit and Twitter to predict short-term stock price movements. The project focuses on meme stocks (e.g., GME, AMC) or trending tickers.
+
+## Methodology
+
+### Data Collection
+- **Reddit**: Uses Python’s PRAW library for Reddit API access.
+- **Twitter**: Uses Tweepy for Twitter data.
+- **Stock Data**: Fetches historical stock prices via yfinance.
+
+### Sentiment Analysis
+- Applies Vader Sentiment Intensity Analyzer or fine-tunes a transformer model (e.g., BERT) to classify posts as bullish/bearish.
+
+### Correlation with Price Data
+- Fetches historical stock prices via yfinance.
+- Calculates Pearson correlation coefficients between sentiment scores and intraday price changes.
+
+## Directory Structure
+sentiment_stock_predictor/
+├── config/
+│   └── config.yaml
+├── data/
+│   ├── raw/
+│   └── processed/
+├── src/
+│   ├── __init__.py
+│   ├── data_collection/
+│   │   ├── __init__.py
+│   │   ├── reddit_scraper.py
+│   │   ├── twitter_scraper.py
+│   │   └── stock_data.py
+│   ├── sentiment/
+│   │   ├── __init__.py
+│   │   └── analyzer.py
+│   ├── analysis/
+│   │   ├── __init__.py
+│   │   └── correlation.py
+│   └── visualization/
+│       ├── __init__.py
+│       └── plots.py
+├── main.py
+├── requirements.txt
+└── README
+
+## Setup
+### Prerequisites
+- Python 3.7+
+- pip
+
+### Installation
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/sentiment_stock_predictor.git
+    cd sentiment_stock_predictor
+    ```
+
+2. Install the required packages:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. Add your API credentials to `config/config.yaml`:
+    ```yaml
+    reddit:
+      client_id: "YOUR_CLIENT_ID"
+      client_secret: "YOUR_CLIENT_SECRET"
+      user_agent: "SentimentAnalyzer/1.0"
+      subreddits: ["wallstreetbets"]
+
+    twitter:
+      api_key: "YOUR_API_KEY"
+      api_secret: "YOUR_API_SECRET"
+      access_token: "YOUR_ACCESS_TOKEN"
+      access_token_secret: "YOUR_ACCESS_TOKEN_SECRET"
+
+    stocks:
+      symbols: ["GME", "AMC", "TSLA"]
+      timeframe: "1d"
+      period: "1mo"
+    ```
+
+## Usage
+Run the main script to start the sentiment analysis and stock price correlation:
+```bash
+python main.py
