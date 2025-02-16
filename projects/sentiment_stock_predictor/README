@@ -86,6 +86,3 @@ sentiment_stock_predictor/
 Run the main script to start the sentiment analysis and stock price correlation:
 ```bash
 python main.py
-
-## Authors
-Mohit Saharan, GitHub Copilot
